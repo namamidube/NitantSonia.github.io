@@ -1,0 +1,64 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Game container styling */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 20px;
+}
+
+#full-image-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#full-image {
+  max-width: 100%;
+  height: auto;
+}
+
+#overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* To make sure it doesn't block other elements */
+  border: 1px solid red;
+  display: none; /* Initially hidden */
+}
+
+#zoomed-images-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.zoomed-image {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+#feedback-text {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: green;
+}
+
+#feedback-text.incorrect {
+  color: red;
+}
+
+#feedback-text.correct {
+  color: green;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Anniversary</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="floral-left"></div>
+  <div class="floral-right"></div>
+  <div class="mobile-wrapper">
+  <div class="content">
+  
+  <div class="top-bar">
+    <div class="menu-button" onclick="toggleMenu()">&#9776;</div>
+    <img src="logo.png" alt="Logo" class="header-logo">
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidePanel" class="side-panel">
+    <ul>
+      <li onclick="navigateTo('index.html')">Home</li>
+      <li onclick="navigateTo('about.html')">About</li>
+    </ul>
+  </div>
+  
+  
+
+  <div class="slideshow-container">
+    <div class="slideshow-track" id="slideshow-track">
+    </div>
+    <div class="name-overlay">Sonia & Nitant</div>
+    <div class="name-overlaydate">Since 2001</div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-arrow-bottom"></div>
+
+    <div class="timeline-item">
+      <div class="timeline-content left">
+        <div class="year-box" onclick="openYearGallery('2001')"><h3>2001-2005</h3></div>
+      </div>
+      <div class="timeline-dot"><span>01</span></div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-content right">
+        <div class="year-box" onclick="openYearGallery('2005')"><h3>2005-2010</h3></div>
+      </div>
+      <div class="timeline-dot"><span>02</span></div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-content left">
+        <div class="year-box" onclick="openYearGallery('2010')"><h3>2010-2015</h3></div>
+      </div>
+      <div class="timeline-dot"><span>03</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content right">
+        <div class="year-box" onclick="openYearGallery('2015')"><h3>2015-2020</h3></div>
+      </div>
+      <div class="timeline-dot"><span>04</span></div>
+    </div>
+  
+    <div class="timeline-item">
+      <div class="timeline-content left">
+        <div class="year-box" onclick="openYearGallery('2020')"><h3>2020-2025</h3></div>
+      </div>
+      <div class="timeline-dot"><span>05</span></div>
+    </div>
+  </div>
+  
+  
+  <script src="script.js"></script>
+</div>
+</div>
+</body>
+</html>

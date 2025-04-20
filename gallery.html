@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <h1 id="gallery-title"></h1>
+  <div id="gallery" class="gallery-container"></div>
+
+  <div id="popup" class="popup-overlay" onclick="closePopup()">
+    <img id="popup-img" class="popup-img" src="" alt="Enlarged Image">
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const year = params.get('year') || '2010';
+    document.getElementById('gallery-title').textContent = `Photos from ${year}`;
+
+    const gallery = document.getElementById('gallery');
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popup-img');
+
+    const imageCounts = {
+      2001: 19,
+      2005: 16,
+      2010: 48,
+      2015: 39,
+      2020: 74
+    };
+
+    const numImages = imageCounts[year];
+
+    for (let i = 1; i <= numImages; i++) {
+      const imgSrc = `photos/${year}/${i}.jpg`;
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.className = 'collage-img';
+      img.alt = `Photo ${i}`;
+      img.style.width = `${Math.floor(Math.random() * 100) + 150}px`;
+      img.style.height = `${Math.floor(Math.random() * 100) + 100}px`;
+      img.style.objectFit = 'cover';
+      img.style.margin = '5px';
+
+      img.addEventListener('click', () => {
+        popupImg.src = imgSrc;
+        popup.classList.add('active');
+      });
+
+      gallery.appendChild(img);
+    }
+
+    function closePopup() {
+      popup.classList.remove('active');
+    }
+     
+  </script>
+
+</body>
+</html>

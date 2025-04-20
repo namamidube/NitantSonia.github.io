@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+  </head>
+  <body>
+    <h1 id="gallery-title"></h1>
+    <div id="gallery" class="gallery-container"></div>
+
+  <div id="popup" class="popup-overlay" onclick="closePopup()">
+    <div onclick="event.stopPropagation()">
+      <img id="popup-img" class="popup-img" src="" alt="Enlarged Image">
+      <br>
+      <button id="download-btn" class="download-button">Download Image</button>
+    </div>
+  </div>
+
+
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+  const year = params.get('year');
+  document.getElementById('gallery-title').textContent = `Photos from ${year}`;
+  const gallery = document.getElementById('gallery');
+  const popup = document.getElementById('popup');
+  const popupImg = document.getElementById('popup-img');
+  const downloadBtn = document.getElementById('download-btn');
+
+  for (let i = 1; i <= 10; i++) {
+    const imgSrc = `photos/${year}/${i}.jpg`;
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.className = 'collage-img';
+    img.style.width = `${Math.floor(Math.random() * 100) + 150}px`;
+    img.style.height = `${Math.floor(Math.random() * 100) + 100}px`;
+    img.style.objectFit = 'cover';
+    img.style.cursor = 'pointer';
+
+    img.addEventListener('click', function (event) {
+      event.stopPropagation();
+      popupImg.src = imgSrc;
+      popup.classList.add('active');
+
+      // Set download trigger via JS
+      downloadBtn.onclick = function () {
+        const imageURL = popupImg.src;
+        const fileName = imageURL.substring(imageURL.lastIndexOf('/') + 1);
+
+        fetch(imageURL)
+          .then(response => response.blob())
+          .then(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(blobUrl);
+          })
+          .catch(error => {
+            console.error('Download failed:', error);
+            alert('Failed to download image.');
+          });
+      };
+
+    });
+
+    gallery.appendChild(img);
+  }
+
+  function closePopup() {
+    popup.classList.remove('active');
+  }
+  </script>
+
+</body>
+</html>

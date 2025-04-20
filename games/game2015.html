@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Zoom Game</title>
+  <link rel="stylesheet" href="game2015.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Full Image Display -->
+    <div id="full-image-container">
+      <img id="full-image" src="" alt="Full family photo">
+      <canvas id="overlay-canvas"></canvas> <!-- Overlay for red box -->
+    </div>
+  
+    <!-- Small Zoomed Images -->
+    <div id="zoomed-images-container">
+      <canvas id="zoomed-image1" class="zoomed-image"></canvas>
+      <canvas id="zoomed-image2" class="zoomed-image"></canvas>
+      <canvas id="zoomed-image3" class="zoomed-image"></canvas>
+    </div>
+  
+    <!-- Feedback -->
+    <p id="feedback-text"></p>
+  </div>
+
+  <script src="game2015.js"></script>
+</body>
+</html>
