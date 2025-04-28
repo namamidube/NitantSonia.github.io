@@ -5,6 +5,7 @@ const puzzle = document.getElementById('puzzle');
 const winMessage = document.getElementById('winMessage');
 
 let order = [...Array(tileCount).keys()].map(i => i + 1); // [1..9]
+let selectedTile = null; // For mobile click-select
 shuffle(order);
 
 function createPuzzleBoard() {
@@ -13,8 +14,11 @@ function createPuzzleBoard() {
     const emptySlot = document.createElement('div');
     emptySlot.classList.add('drop-slot');
     emptySlot.dataset.slot = i;
+
     emptySlot.addEventListener('dragover', dragOver);
     emptySlot.addEventListener('drop', drop);
+    emptySlot.addEventListener('click', slotClick); // Added for tap-to-place
+
     puzzle.appendChild(emptySlot);
   }
 }
@@ -29,8 +33,28 @@ function createTileTray() {
     tile.style.backgroundImage = `url(${imageBase}/1_${num}.jpg)`;
 
     tile.addEventListener('dragstart', dragStart);
+    tile.addEventListener('click', tileClick); // Added for tap-to-select
+
     tray.appendChild(tile);
   });
+}
+
+function tileClick(e) {
+  // Select a tile by tapping it
+  if (selectedTile) {
+    selectedTile.classList.remove('selected');
+  }
+  selectedTile = e.target;
+  selectedTile.classList.add('selected');
+}
+
+function slotClick(e) {
+  if (selectedTile && e.target.classList.contains('drop-slot') && e.target.children.length === 0) {
+    e.target.appendChild(selectedTile);
+    selectedTile.classList.remove('selected');
+    selectedTile = null;
+    checkWin();
+  }
 }
 
 function dragStart(e) {
@@ -49,7 +73,6 @@ function drop(e) {
   if (e.target.classList.contains('drop-slot') && e.target.children.length === 0) {
     e.target.appendChild(tile);
   }
-
   checkWin();
 }
 

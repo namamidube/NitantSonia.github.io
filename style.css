@@ -17,7 +17,7 @@ body {
     top: 0px;
     left: 0;
     bottom: 0;
-    width: 100px;
+    width: 80px;
     background-image: url('BorderLeft.png');
     background-repeat: repeat-y;
     background-size: contain;
@@ -33,7 +33,7 @@ body {
     top: 0px;
     right: 0;
     bottom: 0;
-    width: 100px;
+    width: 80px;
     background-image: url('BorderRight.png');
     background-repeat: repeat-y;
     background-size: contain;
@@ -84,7 +84,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 80px;
+    font-size: 74px;
     color: black;
     z-index: 5;
     text-shadow: 2px 2px 8px rgba(255,255,255,0.7);
@@ -189,7 +189,7 @@ body {
   }
 
   .timeline-content {
-    width: 40px;
+    width: 30px;
     background: #ddc5ac;
     padding: 20px;
     border-radius: 10px;
@@ -200,12 +200,12 @@ body {
 
   .timeline-content.left {
     margin-right: auto;
-    transform: translateX(20%);
+    transform: translateX(-7%);
   }
 
   .timeline-content.right {
     margin-left: auto;
-    transform: translateX(-20%);
+    transform: translateX(7%);
   }
 
   .timeline-dot {
@@ -214,14 +214,14 @@ body {
     color: black;
     font-weight: bold;
     font-size: 18px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    line-height: 42px;
+    line-height: 35px;
     z-index: 1;
   }
 
@@ -241,19 +241,19 @@ body {
   }
 
   .timeline-images img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
   .left-images {
-    transform: translateX(-50%);
+    transform: translateX(-40%);
   }
 
   .right-images {
-    transform: translateX(50%);
+    transform: translateX(40%);
   }
 
   .timeline-arrow-bottom {
@@ -269,43 +269,33 @@ body {
     z-index: 2;
   }
 
-  .timeline-content {
-    width: 30px;
-    background: #ddc5ac;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  .year-box {
+      cursor: pointer;
+      background-color: #f5e1c8;
+      border: 2px solid #b89e8e;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+      width: 130%;    
+      height: 180%;     
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;   
+      left: 50%;   
+      transform: translate(-50%, -50%); /* Perfect centering */
   }
 
-.year-box {
-    cursor: pointer;
-    background-color: #f5e1c8;
-    border: 2px solid #b89e8e;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-
-    width: 130%;    
-    height: 180%;     
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    box-sizing: border-box;
-    position: absolute;
-    top: 50%;   
-    left: 50%;   
-    transform: translate(-50%, -50%); /* Perfect centering */
-}
-
-.year-box:hover {
-    background-color: #fcebd2;
-    transform: scale(1.05) translate(-50%, -50%);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    color: #6f4e37;
-}
+  .year-box:hover {
+      background-color: #fcebd2;
+      transform: scale(1.05) translate(-50%, -50%);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      color: #6f4e37;
+  }
 
   
   .side-panel {
@@ -359,15 +349,15 @@ body {
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 40px;
-    margin: 60px auto;
-    max-width: 1000px;
-    margin-top: 0px;
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
   }
 
   .profile-card {
-    flex: 0 0 300px;
-    background-color: white;
+    flex: 0 0 240px;
+    background-color: #f6ede8;
     border: 2px solid #000;
     border-radius: 15px;
     text-align: center;
@@ -378,22 +368,26 @@ body {
   .profile-card img {
     width: 100%;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
   }
 
   .profile-card h2 {
-    margin: 10px 0 5px;
-    font-size: 22px;
+    margin: 5px 0 3px;
+    font-size: 30px;
   }
 
   .profile-card .role {
     font-weight: bold;
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 20px;
   }
 
   .profile-card .bio {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 1.0;
+    margin-top: 9px;
     color: #333;
+    margin-bottom: 0px;
   }

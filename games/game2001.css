@@ -53,3 +53,8 @@ body {
 .hidden {
   display: none;
 }
+
+.tile.selected {
+  outline: 3px solid #4CAF50; /* green border for selected tile */
+  opacity: 0.8;
+}
